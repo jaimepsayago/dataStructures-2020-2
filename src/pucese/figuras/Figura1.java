@@ -1,5 +1,7 @@
 package pucese.figuras;
 
+import java.util.Scanner;
+
 public class Figura1 {
 
 	public static void main(String[] args) {
@@ -71,18 +73,61 @@ public class Figura1 {
 
 		}
 		*/
-		for (int i = 1; i <= 5; i++) {
-		    for (int j = 1; j <= (5 - i); j++) {
-		        System.out.print(" ");
+		/*for (int i = 1; i <= 5; i++) {
+			for (int j = 1; j <= (-1 * i + 5); j++) {
+		        System.out.print(".");
 		    }
-		    for (int k = 1; k <= i; k++) {
-		        System.out.print("*");
+		    System.out.print(i);
+		    for (int j = 1; j <= (i - 1); j++) {
+		        System.out.print(".");
+		    }
+		    System.out.println();
+
+		}*/
+/*
+		//mal
+		// This loop repeats 10 times, with i from 1 to 10.
+		for (int i = 1; i <= 10; i++) {
+		    for (int j = 1; j <= 5; j++) {  // loop goes 5 times
+		        System.out.print(j);  // print the j
 		    }
 		    System.out.println();
 		}
 
+		//mejor
 		
+		for (int i = 1; i <= 10; i++) {
+		    for (int j = 1; j <= 5; j++) {
+		        System.out.print(j);
+		    }
+		    System.out.println();  // end the line of output
+		}
+*/		
+		//dibjar cuadrado con n elementos utilizando *
 		
+		Scanner input = new Scanner(System.in);
+		int n; 
+		int fila, col;
+		System.out.print ("Lado del cuadrado: ");
+		n = input.nextInt();;
+		for (fila=1; fila<=n; fila++)
+		{
+		for (col=1; col<=n; col++)
+		System.out.print ("* ");
+		System.out.println ("");
+		}
+
+//triangulo
+		
+//rectangulo
+		
+//un cuadrado solo los bordes
+		
+// un triangulo solo los bordes
+		
+// un rectangulo solo los bordes
+		
+
 
 
 	}
