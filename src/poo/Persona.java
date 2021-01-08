@@ -4,6 +4,7 @@ public class Persona {
 	
 	//atributos o propiedades
 	public String nombre;
+	public String apellido;
 	private String contrasenia; //solo se puede acceder desde la clase padre
 	protected String direccion; //solo acceden estas clases y sus descendientes
 
@@ -13,11 +14,22 @@ public class Persona {
 	public Persona() {
 		
 	}
-	public Persona(String n) {
-		nombre = n;
+	public Persona(String nombre, String apellido) {
+		this.nombre = nombre;
+		this.apellido= apellido;
+	}
+//metodos para herencia
+	public String nombreCompleto() {
+		return this.nombre + ", "+ this.apellido;
+	}
+	
+	public String identificacion() {
+		return this.nombreCompleto();
 	}
 	
 	//metodos
+	
+
 	
 	public void comer (double c) {
 		horas = c;
@@ -37,6 +49,12 @@ public class Persona {
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+	public String getApellido() {
+		return apellido;
+	}
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
 	}
 	
 	

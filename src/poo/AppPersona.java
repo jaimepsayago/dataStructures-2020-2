@@ -4,7 +4,7 @@ public class AppPersona {
 
 	public static void main(String[] args) {
 		
-		Persona persona = new Persona("Pedro"); //instanciar un obj
+		Persona persona = new Persona("Pedro","Gomez"); //instanciar un obj
 		System.out.println(persona.getNombre());
 		
 		//persona.nombre="juan"; // no esta correcta
@@ -19,7 +19,7 @@ public class AppPersona {
 		System.out.println("la persona comio y durmio "+ persona.horasTotal());
 		
 		
-		Persona persona1 = new Persona("Pedro2"); //instanciar un obj
+		Persona persona1 = new Persona("Pedro2","gomez2"); //instanciar un obj
 		System.out.println(persona1.getNombre());
 
 		
