@@ -23,7 +23,10 @@ public class AppHerecia2 {
 		
 		lectorArrayPersona(arrayPersona);
 		
-		
+		// a partir de este de tipo de estructuras
+		// pilas, colas, listas, 
+		// arboles y 
+		//collections en java ( arraylist, hashmap, obj nativos)
 	}
 	
 	public static void lectorArrayPersona(Persona [] array) {
