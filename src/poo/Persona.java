@@ -23,7 +23,7 @@ public class Persona {
 		return this.nombre + ", "+ this.apellido;
 	}
 	
-	public String identificacion() {
+	public String imprimirDatos() {
 		return this.nombreCompleto();
 	}
 	
