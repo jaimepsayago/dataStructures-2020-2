@@ -28,7 +28,9 @@ public class Persona {
 	}
 	
 	//metodos
-	
+	public String identificacion() {
+		return this.nombreCompleto();
+	}
 
 	
 	public void comer (double c) {
