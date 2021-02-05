@@ -109,8 +109,55 @@ public class SimpleLinkedList<E>{
 			return tmp.getElement();
 			
 		}
+		//mostrat todos
+		public void getAll() {
+			Node <E> tmp = head; //creamos un nodo tmp y agregamos el inicio de la lista
+			//recorrer la lista
+			while(tmp != null) {
+				System.out.println(tmp.getElement().toString());
+				tmp = tmp.getNext();
+			}
+			//n5----n4---n3---N2---N1
+			
+			
+			
+		}
 		
+		//calcular el promedio de edad de los estudiantes
 		
+		public float promedio() {
+			int suma=0, con =0;
+			
+			if (head !=null) {
+				Node<E> tmp = head;//creamos un nodo tmp y agregamos el inicio de la lista
+				while(tmp != null) {
+					//crear un obj estudiante y realizando un cast para poder hacer operaciones
+					Estudiante objeto = (Estudiante) tmp.getElement(); 
+					suma+=objeto.getEdad();
+					con++;
+					tmp = tmp.getNext();
+				}
+				
+			}
+			return (float) suma/con;
+		}
 		
+		//devolver el estudiante con mayor edad de la lista
+		Estudiante mayor() {
+			Estudiante objeto = null; //declarar objeto
+			Integer may = 0;
+			
+			if(head != null) {
+				Node<E> tmp = head;//creamos un nodo tmp y agregamos el inicio de la lista
+				while(tmp != null) {
+					objeto = (Estudiante) tmp.getElement();
+					if(objeto.edad>may) {
+						may=objeto.edad;
+					}
+					tmp = tmp.getNext();
+				}
+			}
+			return objeto;
 		
+}
 }
