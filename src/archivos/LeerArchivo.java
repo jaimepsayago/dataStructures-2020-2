@@ -26,7 +26,12 @@ public class LeerArchivo {
 		
 		//leer funcion BUFFEREDREADER
 		leerFichero();
-		escribirFichero();
+		//escribirFichero();
+		
+		// XML or JSON or cualquier otro tipo
+		
+		
+		
 	}
 	
 	public static void leerFichero() {
@@ -52,19 +57,18 @@ public class LeerArchivo {
 	}
 	
 	public static void escribirFichero() {
-		File archivo = null;
-		FileWriter writer = null;
+		//File archivo = null;
+		// writer = null;
 		PrintWriter pw = null;
-		
+		String frase="esto es un archivo escrito desde java";
 		try {
-			archivo = new File("guardar.txt");
-			writer = new FileWriter(archivo);
-			pw = new PrintWriter(writer);
+			FileWriter	archivo = new FileWriter("guardar.txt");
+			//writer = new FileWriter(archivo);
+			//pw = new PrintWriter(writer);
 			
 			for (int i = 0; i<10; i++) {
-				pw.println("linea " + i);
+				archivo.write("linea " + i);
 			
-				System.out.println("linea "+i);
 			}
 			
 		}catch (Exception e) {
