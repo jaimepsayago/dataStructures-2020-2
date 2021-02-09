@@ -32,7 +32,7 @@ public class AppSimpleLinkedList {
 	
 		//obtener elemento a traves del index
 		System.out.println(listac.getElementObject(2).nombre);*/
-		
+/*		
 		SimpleLinkedList<Estudiante> lista = new SimpleLinkedList<>();
 		
 		//crear objeto estudiante que se va ainsertar en la lista
@@ -73,7 +73,25 @@ public class AppSimpleLinkedList {
 		//metodo mayor de la lista
 		
 		System.out.println("mayor de los estudiantes : \n");
-		System.out.println(lista.mayor());
+		System.out.println(lista.mayor());*/
+		
+		
+//lista circular
+		
+		CircularyLinkedList<Integer> listaC = new CircularyLinkedList<>();
+		
+		listaC.addFirst(2);
+		listaC.addFirst(3);
+		listaC.addFirst(4);
+		System.out.println(listaC.last());
+		listaC.rotate();
+		System.out.println(listaC.last());
+		listaC.getAll();
+
+		
 	}
+	
+	
+
 
 }

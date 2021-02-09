@@ -1,6 +1,6 @@
 package listas;
 
-public class SimpleLinkedList<E>{
+public class CircularyLinkedList<E>{
 
 	//CLASE INTERNA NODO DENTRO DE LA CLASE SIMPLELINKED LIST
 		private static class Node<E>{
@@ -28,14 +28,14 @@ public class SimpleLinkedList<E>{
 		//INSTANCIA Y METODOS DE LA CLASE SIMPLE LINKED LIST
 		
 		//HEAD nodo de la lista
-		private Node<E> head = null;
+		//private Node<E> head = null;
 		private Node <E> tail = null;
 		
 		//numero de nodos de la lista
 		private int size = 0; //edd dinamica!!!!
 		
 		//constructor
-		public SimpleLinkedList() {
+		public CircularyLinkedList() {
 			
 		}
 		//metodos
@@ -53,7 +53,7 @@ public class SimpleLinkedList<E>{
 		//retornar el first elemento
 		public E first() {
 			if (isEmpty()) return null;
-			return head.getElement();
+			return tail.getNext().getElement();
 		}
 		
 		//retornar el ultimo valor
@@ -65,43 +65,49 @@ public class SimpleLinkedList<E>{
 		//agregar datos al inicio de la lista
 		
 		public void addFirst(E e) {
-			head = new Node<>(e,head); // e=elemento y head=referncia al nodo
-			if(size == 0)
-				tail = head;
+			if(size == 0) {
+				tail = new Node<>(e, null);//agregamos un dato en la lista sin referencia
+				tail.setNext(tail); //referencia ciclica o cirular
+			}
+			else {
+				Node<E> newest = new Node <>(e,tail.getNext());//agregar un nuevo nodo y apunta a la cola
+				tail.setNext(newest);//apunta la cola al nuevo nodo agregado
+			}
 			size++;
-			//  HEAD-----HEAD-----HEAD----head-----NULL
 		}
 		
 		
 		//agregar datos al final de la lista
 		public void addLast(E e) {
-			Node <E> newest = new Node<>(e, null);
-			if (isEmpty())
-				head = newest;
-			else
-				tail.setNext(newest);
-				tail = newest;
-			size++;
-			//  N1----N2-----N3-----N4------N5-----N6-----N7-----N8---n1
+			addFirst(e); //llamar al metodo insertar inicio
+			tail = tail.getNext();
+		}
+		
+		//rotate
+		//mover el primer elemento al fin de la lista 
+		public void rotate() {
+			if (tail != null); //si esta vacia no hace nada
+			tail = tail.getNext(); //la cabeza o principio de la lista es la nueva cola
 		}
 		
 		//remover
 		public E removeFirst() {
 			if(isEmpty()) return null;
 			
-			E e1 = head.getElement(); //obener valor de la primer valor
-			head = head.getNext(); //apunto al siguiente
-			size--;
-			if(size == 0)
+			Node<E> head = tail.getNext();
+			if(head == tail)
 				tail = null;
-			return e1;
-			
+			else
+				tail.setNext(head.getNext()); //remueve la "head" de la lista
+			size--;
+			return head.getElement();
+						
 		}
 		
 		//obtener
 		public E getElementObject (int index) {
 			int c = 0;
-			Node<E> tmp = head;
+			Node<E> tmp = tail;
 			while (c<index) {
 				tmp = tmp.getNext();
 				c++;
@@ -111,7 +117,7 @@ public class SimpleLinkedList<E>{
 		}
 		//mostrat todos
 		public void getAll() {
-			Node <E> tmp = head; //creamos un nodo tmp y agregamos el inicio de la lista
+			Node <E> tmp = tail; //creamos un nodo tmp y agregamos el inicio de la lista
 			//recorrer la lista
 			while(tmp != null) {
 				System.out.println(tmp.getElement().toString());
@@ -128,8 +134,8 @@ public class SimpleLinkedList<E>{
 		public float promedio() {
 			int suma=0, con =0;
 			
-			if (head !=null) {
-				Node<E> tmp = head;//creamos un nodo tmp y agregamos el inicio de la lista
+			if (tail !=null) {
+				Node<E> tmp = tail;//creamos un nodo tmp y agregamos el inicio de la lista
 				while(tmp != null) {
 					//crear un obj estudiante y realizando un cast para poder hacer operaciones
 					Estudiante objeto = (Estudiante) tmp.getElement(); 
@@ -147,8 +153,8 @@ public class SimpleLinkedList<E>{
 			Estudiante objeto = null; //declarar objeto
 			Integer may = 0;
 			
-			if(head != null) {
-				Node<E> tmp = head;//creamos un nodo tmp y agregamos el inicio de la lista
+			if(tail != null) {
+				Node<E> tmp = tail;//creamos un nodo tmp y agregamos el inicio de la lista
 				while(tmp != null) {
 					objeto = (Estudiante) tmp.getElement();
 					if(objeto.edad>may) {
